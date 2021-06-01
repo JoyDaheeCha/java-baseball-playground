@@ -1,4 +1,4 @@
-package BaseballGame;
+package BaseballGame.Domain;
 
 import java.util.Objects;
 
@@ -48,19 +48,4 @@ public class Ball {
         return this.ballNumber == ballNo;
     }
 
-
-
-    /*public boolean isStrike(Ball ball) {
-        if(this.equals(ball)){
-            return true;
-        }
-        return false;
-    }
-
-    public boolean isBall(Ball ball) {
-        if(ball.position == this.position){
-            return true;
-        }
-        return false;
-    }*/
 }

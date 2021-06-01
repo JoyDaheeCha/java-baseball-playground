@@ -1,4 +1,4 @@
-package BaseballGame;
+package BaseballGame.Domain;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,5 +30,17 @@ public class BallsTest {
         assertThat(new Balls(123).play(new Ball(1,1))).isEqualTo(BallStatus.STRIKE);
         assertThat(new Balls(123).play(new Ball(2,1))).isEqualTo(BallStatus.BALL);
         assertThat(new Balls(123).play(new Ball(1,9))).isEqualTo(BallStatus.NOTHING);
+    }
+
+    @Test
+    void Balls_playResult_SRIKE_BALL_NOTHING_반환_테스트() {
+        assertThat(new Balls(123).play(new Balls(123)).getStrike()).isEqualTo(3);
+
+        assertThat(new Balls(123).play(new Balls(135)).getStrike()).isEqualTo(1);
+        assertThat(new Balls(123).play(new Balls(135)).getBall()).isEqualTo(1);
+
+        assertThat(new Balls(123).play(new Balls(789)).getStrike()).isEqualTo(0);
+        assertThat(new Balls(123).play(new Balls(789)).getBall()).isEqualTo(0);
+
     }
 }

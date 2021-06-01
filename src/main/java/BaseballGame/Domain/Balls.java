@@ -1,4 +1,4 @@
-package BaseballGame;
+package BaseballGame.Domain;
 
 import java.util.*;
 
@@ -63,5 +63,14 @@ public class Balls {
                     .filter(BallStatus::isNotNothing)
                     .findFirst()
                     .orElse(BallStatus.NOTHING);
+    }
+
+    public PlayResult play(Balls userBalls) {
+        PlayResult playResult= new PlayResult();
+        for (Ball answer: balls) {
+            BallStatus status = userBalls.play(answer);
+            playResult.report(status);
+        }
+        return playResult;
     }
 }

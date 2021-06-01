@@ -1,4 +1,4 @@
-package BaseballGame;
+package BaseballGame.Domain;
 
 import org.junit.jupiter.api.Test;
 

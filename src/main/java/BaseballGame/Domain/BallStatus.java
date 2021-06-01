@@ -1,4 +1,4 @@
-package BaseballGame;
+package BaseballGame.Domain;
 
 public enum BallStatus {
     STRIKE, BALL, NOTHING;
@@ -11,7 +11,11 @@ public enum BallStatus {
         return this == STRIKE;
     }
 
-    public boolean isBALL() {
+    public boolean isBall() {
         return this == BALL;
+    }
+
+    public boolean isNothing() {
+        return this == NOTHING;
     }
 }
