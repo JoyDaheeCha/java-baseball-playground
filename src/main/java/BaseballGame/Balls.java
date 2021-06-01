@@ -12,9 +12,12 @@ public class Balls {
     }
 
     private void setBalls(int num) {
+        //TODO 자리수 나누는 법 리팩토링 필요
+        int i = 3;
         while(num>0){
-            balls.add(new Ball(1, num%10));
+            balls.add(new Ball(i, num%10));
             num=num/10;
+            i--;
         }
         Collections.reverse(balls);
     }
@@ -52,5 +55,13 @@ public class Balls {
     @Override
     public int hashCode() {
         return Objects.hash(balls);
+    }
+
+    public BallStatus play(Ball userBall) {
+       return  this.balls.stream()
+                    .map(answer->answer.play(userBall))
+                    .filter(BallStatus::isNotNothing)
+                    .findFirst()
+                    .orElse(BallStatus.NOTHING);
     }
 }

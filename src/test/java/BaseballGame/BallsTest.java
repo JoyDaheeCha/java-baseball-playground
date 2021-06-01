@@ -24,4 +24,11 @@ public class BallsTest {
         assertThat(new Balls(123)).isEqualTo(new Balls(123));
         assertThat(new Balls(123)).isNotEqualTo(new Balls(321));
     }
+
+    @Test
+    void Balls_컴퓨터의_답안_기준으로_사용자_입력_수에_대해_STRIKE_BALL_NOTHING_중_하나_고른다() {
+        assertThat(new Balls(123).play(new Ball(1,1))).isEqualTo(BallStatus.STRIKE);
+        assertThat(new Balls(123).play(new Ball(2,1))).isEqualTo(BallStatus.BALL);
+        assertThat(new Balls(123).play(new Ball(1,9))).isEqualTo(BallStatus.NOTHING);
+    }
 }
