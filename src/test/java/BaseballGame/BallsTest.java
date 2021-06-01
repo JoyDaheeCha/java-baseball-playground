@@ -2,8 +2,7 @@ package BaseballGame;
 
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.*;
 
 public class BallsTest {
     @Test
@@ -20,4 +19,9 @@ public class BallsTest {
         assertThatThrownBy(() -> new Balls(121)).isInstanceOf(RuntimeException.class);
     }
 
+    @Test
+    void Balls_두_balls는_같다() {
+        assertThat(new Balls(123)).isEqualTo(new Balls(123));
+        assertThat(new Balls(123)).isNotEqualTo(new Balls(321));
+    }
 }
